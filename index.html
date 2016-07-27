@@ -11,43 +11,45 @@
 				margin-top: 10px;
 			}
 
-    	.camera {
+    	.camera, .output {
     		border: 2px black solid;
     		overflow: scroll;
     		padding-bottom: 10px;
     	}
 
-    	.input {
+    	.input, .logs {
     		border: 2px black solid;
     		border-left: 0;
     		overflow: scroll;
     		padding-bottom: 10px;
     	}
 
-    	.output {
-    		border: 2px black solid;
-    		overflow: scroll;
-    		padding-bottom: 10px;
-    	}
+      .logs {
+        height: 426px;
+      }
+
+      #log {
+        overflow-y: scroll;
+        max-height: 350px;
+      }
     </style>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <!-- Latest compiled and minified Bootstrap CSS/JS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jemsoft.io/style-guide/assets/css/jemsoft-bootstrap.css" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" crossorigin="anonymous"></script>
     <!-- Monocular JS SDK -->
     <script src="https://cdn.jemsoft.io/monocular-javascript-sdk/sdk-1.0.0.js"></script>
   </head>
  	<body>
     <div class="container"> 
-      <h1 class="text-center">Monocular API BG Subtraction Example</h1>
+      <h1 class="text-center">Monocular API BG Subtraction Demo</h1>
       <div class="row">
         <div class="col-md-6 camera text-center">
       		<h3>Webcam</h3>
           <video id="webcamVideo" autoplay="">
         </div>
         <div class="col-md-6 input text-center">
-      		<h3>Last Captured Input (To API)</h3>
+      		<h3>Last Captured Input (Sent to API)</h3>
           <canvas id="inputCanvas">
         </div>
       </div>
@@ -56,13 +58,17 @@
 	      <div class="btn-group">
   	    	<button class="btn btn-lg btn-warning" id="initButton">Initialize</button>
   	    	<button class="btn btn-lg btn-danger" id="deleteButton">Delete</button>
-  	    	<button class="btn btn-lg btn-primary" id="captureButton">Capture</button>
+          <button class="btn btn-lg btn-primary" id="captureButton">Capture</button>
   	    </div>
       </div>
       <div class="row top-buffer">
-        <div class="col-md-6 col-md-offset-3 text-center output">
+        <div class="col-md-6 text-center output">
       		<h3>Last API Response</h3>
           <canvas id="outputCanvas">
+        </div>
+        <div class="col-md-6 text-center logs">
+          <h3>Logs</h3>
+          <pre id="log" class="text-left"></pre>
         </div>
       </div>
     <script src="./app.js"></script>
