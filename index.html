@@ -2,30 +2,34 @@
   <head>
     <title>Monocular API BG Subtraction</title>
     <style>
-    	#webcamVideo, #inputCanvas, #outputCanvas {
-    		width: 480px;
-    		height: 360px;
-    	}
+      #webcamVideo, #inputCanvas, #outputCanvas {
+        width: 480px;
+        height: 360px;
+      }
 
-			.top-buffer {
-				margin-top: 10px;
-			}
+      h3 {
+        margin-top: 11px !important;
+      }
 
-    	.camera, .output {
-    		border: 2px black solid;
-    		overflow: scroll;
-    		padding-bottom: 10px;
-    	}
+      .top-buffer {
+        margin-top: 10px;
+      }
 
-    	.input, .logs {
-    		border: 2px black solid;
-    		border-left: 0;
-    		overflow: scroll;
-    		padding-bottom: 10px;
-    	}
+      .camera, .output {
+        border: 2px black solid;
+        overflow: scroll;
+        padding-bottom: 10px;
+      }
+
+      .input, .logs {
+        border: 2px black solid;
+        border-left: 0;
+        overflow: scroll;
+        padding-bottom: 10px;
+      }
 
       .logs {
-        height: 426px;
+        height: 415px;
       }
 
       #log {
@@ -40,30 +44,31 @@
     <!-- Monocular JS SDK -->
     <script src="https://cdn.jemsoft.io/monocular-javascript-sdk/sdk-1.0.0.js"></script>
   </head>
- 	<body>
+  <body>
     <div class="container"> 
       <h1 class="text-center">Monocular API BG Subtraction Demo</h1>
+      <h5 class="text-center"><a href="https://github.com/Jemsoft/background-subtraction-example" target="_blank">Instructions/Github Repo</h6>
       <div class="row">
         <div class="col-md-6 camera text-center">
-      		<h3>Webcam</h3>
+          <h3>Webcam</h3>
           <video id="webcamVideo" autoplay="">
         </div>
         <div class="col-md-6 input text-center">
-      		<h3>Last Captured Input (Sent to API)</h3>
+          <h3>Last Captured Input (Sent to API)</h3>
           <canvas id="inputCanvas">
         </div>
       </div>
       <div class="row text-center top-buffer">
-      	<img id="spinnerImg" src="https://cdn.jemsoft.io/monocular-web-vtl/assets/images/spinner.gif" width="45" height="45" style="display: none">
-	      <div class="btn-group">
-  	    	<button class="btn btn-lg btn-warning" id="initButton">Initialize</button>
-  	    	<button class="btn btn-lg btn-danger" id="deleteButton">Delete</button>
+        <img id="spinnerImg" src="https://cdn.jemsoft.io/monocular-web-vtl/assets/images/spinner.gif" width="45" height="45" style="display: none">
+        <div class="btn-group">
+          <button class="btn btn-lg btn-warning" id="initButton">Initialize</button>
+          <button class="btn btn-lg btn-danger" id="deleteButton">Delete</button>
           <button class="btn btn-lg btn-primary" id="captureButton">Capture</button>
-  	    </div>
+        </div>
       </div>
       <div class="row top-buffer">
         <div class="col-md-6 text-center output">
-      		<h3>Last API Response</h3>
+          <h3>Last API Response</h3>
           <canvas id="outputCanvas">
         </div>
         <div class="col-md-6 text-center logs">
@@ -72,5 +77,5 @@
         </div>
       </div>
     <script src="./app.js"></script>
- 	</body>
+  </body>
 </div>
